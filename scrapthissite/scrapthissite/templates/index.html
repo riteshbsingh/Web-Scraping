@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Company Scraper</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            flex-direction: column;
+        }
+        h1 {
+            color: #333;
+        }
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            width: 100%;
+            max-width: 500px;
+        }
+        input[type="text"] {
+            width: calc(100% - 20px);
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+        button {
+            background-color: #28a745;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        .error {
+            color: red;
+        }
+        .company-details {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 500px;
+        }
+        .company-details table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .company-details table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f4f4f9;
+        }
+    </style>
+</head>
+<body>
+    <h1>Company Details Scraper</h1>
+    <form action="/" method="POST">
+        <label for="company_url">Enter Company URL:</label>
+        <input type="text" id="company_url" name="company_url" placeholder="https://www.example.com" required>
+        <button type="submit">Search</button>
+    </form>
+
+    {% if error %}
+    <p class="error">{{ error }}</p>
+    {% endif %}
+
+    {% if data %}
+    <div class="company-details">
+        <h2>Scraped Company Data</h2>
+        <table>
+            <tr><th>Field</th><th>Value</th></tr>
+            <tr><td>Platform use</td><td>{{ data['Platform use'] }}</td></tr>
+            <tr><td>Company Name</td><td>{{ data['Company Name'] }}</td></tr>
+            <tr><td>Address street</td><td>{{ data['Address street'] }}</td></tr>
+            <tr><td>Address town</td><td>{{ data['Address town'] }}</td></tr>
+            <tr><td>Country Name</td><td>{{ data['Country Name'] }}</td></tr>
+            <tr><td>Website</td><td>{{ data['Website'] }}</td></tr>
+            <tr><td>Established</td><td>{{ data['Established'] }}</td></tr>
+            <tr><td>Nr. Of employees</td><td>{{ data['Nr. Of employees'] }}</td></tr>
+            <tr><td>Specialize in</td><td>{{ data['Specialize in'] }}</td></tr>
+        </table>
+    </div>
+    {% endif %}
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Company Details Result</title>
+</head>
+<body>
+    <h1>Scraped Company Data</h1>
+    <table border="1">
+        <tr><th>Field</th><th>Value</th></tr>
+        <tr><td>Platform use</td><td>{{ data['Platform use'] }}</td></tr>
+        <tr><td>Company Name</td><td>{{ data['Company Name'] }}</td></tr>
+        <tr><td>Address street</td><td>{{ data['Address street'] }}</td></tr>
+        <tr><td>Address town</td><td>{{ data['Address town'] }}</td></tr>
+        <tr><td>Country Name</td><td>{{ data['Country Name'] }}</td></tr>
+        <tr><td>Website</td><td>{{ data['Website'] }}</td></tr>
+        <tr><td>Established</td><td>{{ data['Established'] }}</td></tr>
+        <tr><td>Nr. Of employees</td><td>{{ data['Nr. Of employees'] }}</td></tr>
+        <tr><td>Specialize in</td><td>{{ data['Specialize in'] }}</td></tr>
+    </table>
+</body>
+</html>
